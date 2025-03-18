@@ -1,9 +1,9 @@
 @import "{{ site.theme }}";
 
-header a {
+footer {
   display: none !important;
 }
 
-.site-footer-owner, .site-footer-credits {
-    display: none; /* フッター部分を非表示 */
+.btn {
+  display: none !important;
 }
