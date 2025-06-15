@@ -9,15 +9,83 @@ footer {
 }
 
 @media print {
-  * {
+  body {
+    margin: 1cm;
+    color: #000;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  header,
+  footer,
+  nav,
+  #skip-to-content {
+    display: none !important;
+  }
+
+  /* 各セクションの直前で改ページ */
+  h2 {
+    page-break-before: always;
+  }
+
+  /* 最上部のタイトルだけは改ページを避ける */
+  h1 {
+    page-break-before: auto;
+  }
+
+  /* h2 + table や h3 + table なども一気にまとめて分けたい場合 */
+  h2,
+  h3 {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  h2 + *,
+  h3 + *,
+  h3 + table {
     page-break-inside: avoid;
   }
 
-  footer {
-    display: none !important;
+  /* 表や段落、リストの分割防止 */
+  table,
+  tr,
+  th,
+  td,
+  p,
+  ul,
+  ol {
+    page-break-inside: avoid;
   }
 
-  .btn {
-    display: none !important;
+  /* テーブル幅の最適化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    vertical-align: top;
+  }
+
+  /* 改ページの前後でしっかり表示されるよう余白・間隔を調整 */
+  h2,
+  h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  p,
+  ul,
+  ol {
+    margin-bottom: 1em;
+  }
+
+  /* ハイパーリンクの印刷表示（ブラウザに依存） */
+  a::after {
+    content: ' (' attr(href) ')';
+    font-size: 90%;
   }
 }
