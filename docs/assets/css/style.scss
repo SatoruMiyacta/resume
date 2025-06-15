@@ -1,4 +1,4 @@
-@import "{{ site.theme }}";
+@import '{{ site.theme }}';
 
 footer {
   display: none !important;
@@ -6,4 +6,18 @@ footer {
 
 .btn {
   display: none !important;
+}
+
+@media print {
+  * {
+    page-break-inside: avoid;
+  }
+
+  footer {
+    display: none !important;
+  }
+
+  .btn {
+    display: none !important;
+  }
 }
