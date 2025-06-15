@@ -9,4 +9,12 @@
     ul, ol, li, p {
       page-break-inside: avoid;
     }
+
+      /* 特定のセクションを新しいページから始める */
+  h2#職務経歴,
+  h2#技術スキル {
+    page-break-before: always !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
 }
